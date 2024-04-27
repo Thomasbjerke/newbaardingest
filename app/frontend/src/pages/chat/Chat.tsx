@@ -30,9 +30,11 @@ import { useMsal } from "@azure/msal-react";
 import { TokenClaimsDisplay } from "../../components/TokenClaimsDisplay";
 import { GPT4VSettings } from "../../components/GPT4VSettings";
 
+import ttlogotekst from "../../assets/ttlogotekst.png";
+
 const Chat = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
-    const [promptTemplate, setPromptTemplate] = useState<string>("");
+    const [promptTemplate, setPromptTemplate] = useState<string>(">>> Answer in Norwegian");
     const [temperature, setTemperature] = useState<number>(0.3);
     const [minimumRerankerScore, setMinimumRerankerScore] = useState<number>(0);
     const [minimumSearchScore, setMinimumSearchScore] = useState<number>(0);
@@ -293,9 +295,8 @@ const Chat = () => {
                 <div className={styles.chatContainer}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
-                            <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
-                            <h1 className={styles.chatEmptyStateTitle}>Chat with your data</h1>
-                            <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
+                            <img src={ttlogotekst} className={styles.chatIcon} aria-hidden="true" />
+                            <h2 className={styles.chatEmptyStateSubtitle}>Denne chatbotten svarer på spørsmål om trafikksikkerhet</h2>
                             <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />
                         </div>
                     ) : (
@@ -361,7 +362,7 @@ const Chat = () => {
                     <div className={styles.chatInput}>
                         <QuestionInput
                             clearOnSend
-                            placeholder="Type a new question (e.g. does my plan cover annual eye exams?)"
+                            placeholder="Skriv inn et spørsmål..."
                             disabled={isLoading}
                             onSend={question => makeApiRequest(question)}
                         />
@@ -385,7 +386,7 @@ const Chat = () => {
                     isBlocking={false}
                     onDismiss={() => setIsConfigPanelOpen(false)}
                     closeButtonAriaLabel="Close"
-                    onRenderFooterContent={() => <DefaultButton onClick={() => setIsConfigPanelOpen(false)}>Close</DefaultButton>}
+                    onRenderFooterContent={() => <DefaultButton onClick={() => setIsConfigPanelOpen(false)}>Lukk</DefaultButton>}
                     isFooterAtBottom={true}
                 >
                     <TextField
