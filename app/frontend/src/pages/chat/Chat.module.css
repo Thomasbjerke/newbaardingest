@@ -115,3 +115,77 @@
     margin-right: 20px;
     margin-bottom: 20px;
 }
+
+
+.chatIcon {
+    height: 256px;
+    width: 256px;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+    .chatEmptyState {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .chatEmptyStateTitle {
+        font-size: 2rem;
+    }
+
+    .chatEmptyStateSubtitle {
+        font-size: 1rem;
+        /* Make sure the text is centered by adjusting the container alignment */
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .chatMessageStream {
+        padding: 0 12px;
+    }
+
+    .chatInput {
+        padding: 12px;
+    }
+
+    .chatAnalysisPanel {
+        margin: 0 10px;
+    }
+
+    .chatIcon {
+        height: 128px;
+        width: 128px;
+    }
+
+    .commandsContainer {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .commandButton {
+        margin-right: 10px;
+    }
+}
+
+/* Additional styling for even smaller devices like iPhone 5/SE */
+@media (max-width: 320px) {
+    .chatEmptyState {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .chatEmptyStateTitle {
+        font-size: 1.5rem;
+    }
+
+    .chatEmptyStateSubtitle {
+        font-size: 0.8rem;
+    }
+
+    .chatIcon {
+        height: 96px;
+        width: 96px;
+    }
+}
