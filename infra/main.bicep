@@ -240,7 +240,7 @@ module backend 'core/host/appservice.bicep' = {
   name: 'web'
   scope: resourceGroup
   params: {
-    name: 'chatbaardtest'
+    name: 'chatbaardingesttest'
     location: location
     tags: union(tags, { 'azd-service-name': 'backend' })
     appServicePlanId: appServicePlan.outputs.id
